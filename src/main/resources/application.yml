@@ -1,0 +1,45 @@
+logging:
+  config: classpath:logback-spring.xml
+
+server:
+  port: 8080
+
+spring:
+  application:
+    name: halo-easy-rules
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://localhost:3306/test?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    username: root
+    password: 111111
+    hikari:
+      maximum-pool-size: 100
+      minimum-idle: 10
+      connection-init-sql: SELECT 1 FROM DUAL
+      connection-test-query: SELECT 1 FROM DUAL
+      connection-timeout: 1000
+      idle-timeout: 10000
+      pool-name: mallManagerPool
+
+  mvc:
+    throw-exception-if-no-handler-found: true
+    resources:
+      add-mappings: false
+
+# mybaits 相关配置
+mybatis:
+  type-aliases-package: com.halo.rule.**.pojo.domain
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    default-fetch-size: 100
+    default-statement-timeout: 30
+
+# 分页配置
+pagehelper:
+  helper-dialect: mysql
+  reasonable: false
+  params: count=countSql
+  support-methods-arguments: true
+  row-bounds-with-count: false
+  page-size-zero: false
