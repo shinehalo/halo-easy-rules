@@ -1,7 +1,6 @@
 package com.halo.rule.config;
 
 import com.halo.rule.service.BizRuleService;
-import lombok.AllArgsConstructor;
 import org.jeasy.rules.api.Rules;
 import org.jeasy.rules.support.composite.CompositeRule;
 import org.springframework.stereotype.Component;
