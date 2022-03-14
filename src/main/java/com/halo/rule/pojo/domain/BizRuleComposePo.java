@@ -7,7 +7,7 @@ import java.util.Date;
  * @description 规则组合
  * @date 2022/03/11
  */
-public class BizRuleComposeBo {
+public class BizRuleComposePo {
     /**
      * 主键
      */
